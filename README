@@ -50,6 +50,10 @@ Adds the following RSpec matchers:
     object.should validate_length_of(:attribute, :within => 5..10)
     object.should validate_length_of(:attribute, :is => 5)
     TM snippet: [msvl + tab]
+    
+    object.should validate_numericality_of(:attribute, :greater_than => 1)
+    object.should validate_numericality_of(:attribute, :less_than_or_equal_to => 99)
+    TM snippet: [msvn + tab]
 
   * Observers:
     Verify that the observer is observing a class. (doesn't verify that the observation works)
@@ -162,6 +166,10 @@ In your model spec:
 
       it do
         @user.should validate_length_of(:password, :between => 4..40)
+      end
+      
+      it do
+        @user.should validate_numericality_of(:age, :greater_than_or_equal_to => 21)
       end
 
       it do
